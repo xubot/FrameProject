@@ -7,7 +7,7 @@
     android:background="#363636"
     tools:context=".ui.activity.ImagePreviewActivity">
 
-    <com.github.chrisbanes.photoview.PhotoView
+    <com.example.frame.frameproject.widget.PhotoViewPager
         android:id="@+id/vp_image_preview_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

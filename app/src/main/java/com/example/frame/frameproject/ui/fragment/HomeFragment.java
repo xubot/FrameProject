@@ -8,14 +8,18 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
+import okhttp3.Call;
 
 import com.example.frame.frameproject.R;
 import com.example.frame.frameproject.base.BaseFragmentAdapter;
 import com.example.frame.frameproject.common.MyFragment;
+import com.example.frame.frameproject.http.request.CopyApi;
 import com.example.frame.frameproject.ui.activity.HomeActivity;
 import com.example.frame.frameproject.widget.XCollapsingToolbarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.gyf.immersionbar.ImmersionBar;
+import com.hjq.http.EasyHttp;
+import com.hjq.http.listener.OnHttpListener;
 
 /**
  *    author : Android 轮子哥
@@ -76,6 +80,7 @@ public final class HomeFragment extends MyFragment<HomeActivity>
     @Override
     protected void initData() {
 
+
     }
 
     @Override
@@ -110,5 +115,10 @@ public final class HomeFragment extends MyFragment<HomeActivity>
             mSearchView.setSupportImageTintList(ColorStateList.valueOf(getColor(R.color.white)));
             getStatusBarConfig().statusBarDarkFont(false).init();
         }
+    }
+
+    @Override
+    public void onSucceed(Object result) {
+        super.onSucceed(result);
     }
 }

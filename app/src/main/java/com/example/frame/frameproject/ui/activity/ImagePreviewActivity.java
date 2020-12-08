@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
-import androidx.viewpager.widget.ViewPager;
 
 import com.example.frame.frameproject.R;
 import com.example.frame.frameproject.aop.CheckNet;
@@ -12,6 +11,7 @@ import com.example.frame.frameproject.aop.DebugLog;
 import com.example.frame.frameproject.common.MyActivity;
 import com.example.frame.frameproject.other.IntentKey;
 import com.example.frame.frameproject.ui.pager.ImagePagerAdapter;
+import com.example.frame.frameproject.widget.PhotoViewPager;
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
 import com.rd.PageIndicatorView;
@@ -45,7 +45,7 @@ public final class ImagePreviewActivity extends MyActivity {
         context.startActivity(intent);
     }
 
-    private ViewPager mViewPager;
+    private PhotoViewPager mViewPager;
     private PageIndicatorView mIndicatorView;
 
     @Override
@@ -55,7 +55,7 @@ public final class ImagePreviewActivity extends MyActivity {
 
     @Override
     protected void initView() {
-        mViewPager = findViewById(R.id.vp_image_preview_pager);
+        mViewPager =findViewById(R.id.vp_image_preview_pager);
         mIndicatorView = findViewById(R.id.pv_image_preview_indicator);
         mIndicatorView.setViewPager(mViewPager);
     }

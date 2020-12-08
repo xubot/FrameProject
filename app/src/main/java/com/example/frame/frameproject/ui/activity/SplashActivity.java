@@ -27,8 +27,6 @@ import com.hjq.http.listener.HttpCallback;
 public final class SplashActivity extends MyActivity {
 
     private LottieAnimationView mLottieView;
-    private View mDebugView;
-
     @Override
     protected int getLayoutId() {
         return R.layout.splash_activity;
@@ -37,10 +35,9 @@ public final class SplashActivity extends MyActivity {
     @Override
     protected void initView() {
         mLottieView = findViewById(R.id.iv_splash_lottie);
-        mDebugView = findViewById(R.id.iv_splash_debug);
+
         // 设置动画监听
         mLottieView.addAnimatorListener(new AnimatorListenerAdapter() {
-
             @Override
             public void onAnimationEnd(Animator animation) {
                 startActivity(HomeActivity.class);
@@ -51,20 +48,10 @@ public final class SplashActivity extends MyActivity {
 
     @Override
     protected void initData() {
-        if (AppConfig.isDebug()) {
-            mDebugView.setVisibility(View.VISIBLE);
-        } else {
-            mDebugView.setVisibility(View.INVISIBLE);
-        }
-
-        if (true) {
-            return;
-        }
         // 刷新用户信息
         EasyHttp.post(this)
                 .api(new UserInfoApi())
                 .request(new HttpCallback<HttpData<UserInfoBean>>(this) {
-
                     @Override
                     public void onSucceed(HttpData<UserInfoBean> data) {
 

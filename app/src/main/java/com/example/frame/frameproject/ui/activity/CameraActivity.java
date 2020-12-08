@@ -1,5 +1,6 @@
 package com.example.frame.frameproject.ui.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
@@ -84,7 +85,7 @@ public final class CameraActivity extends MyActivity {
             // 拍摄照片
             intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         }
-        if (XXPermissions.hasPermission(this, Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE, Permission.CAMERA)
+        if (XXPermissions.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA)
                 && intent.resolveActivity(getPackageManager()) != null) {
             mFile = getSerializable(IntentKey.FILE);
             if (mFile != null && mFile.exists()) {
@@ -138,7 +139,7 @@ public final class CameraActivity extends MyActivity {
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private static File createCameraFile(boolean video) {
-        File folder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), "Camera");
+        File folder = new File(Environment.getRootDirectory(), "Camera");
         if (!folder.exists() || !folder.isDirectory()) {
             if (!folder.mkdirs()) {
                 folder = Environment.getExternalStorageDirectory();

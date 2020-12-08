@@ -67,7 +67,6 @@ public final class HomeActivity extends MyActivity
     /**
      * {@link BottomNavigationView.OnNavigationItemSelectedListener}
      */
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -117,12 +116,10 @@ public final class HomeActivity extends MyActivity
             // 移动到上一个任务栈，避免侧滑引起的不良反应
             moveTaskToBack(false);
             postDelayed(() -> {
-
                 // 进行内存优化，销毁掉所有的界面
                 ActivityStackManager.getInstance().finishAllActivities();
                 // 销毁进程（注意：调用此 API 可能导致当前 Activity onDestroy 方法无法正常回调）
                 // System.exit(0);
-
             }, 300);
         } else {
             toast(R.string.home_exit_hint);
